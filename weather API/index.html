@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel='stylesheet' href="css/bootstrap.min.css"/>
+        <link rel='stylesheet' href="css/main.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">    
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>   
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       <script src="js/location.js"></script>
+        <script src="js/ui.js"> </script>
+    </head>
+<body>
+
+<header>
+<h1>Weather<span>cast</span></h1>
+        <div class="row">   
+        <div class="col-sm-3 col-sm-offset-3">
+             
+        <button id='automatic' class='btn'>Instant weather</button>
+            </div>
+         <div class="col-sm-3">
+             
+        <button class='btn' id='manual'>Via Pincode</button>
+            </div>    
+        </div>     
+</header>
+<section id='pincodesearch'>
+    <h2>Please enter your pincode for weather updates</h2>
+    <div class="col-md-6 col-md-offset-3">
+        <form onsubmit='return false;'>
+            <div class="form-group">
+                <div class="col-md-10 ">
+                <input type='text' class='form-control' required placeholder='Enter your pin code' id='pincode'>
+                </div>
+                <div class="col-md-2">
+                <button class="btn btn-success form-control"  id='search'>Go</button>
+                </div>
+            </div>
+        </form>
+    </div>  
+</section>      
+<section id='weather'>
+    <div class="row">
+       
+        <div class="col-md-8 col-md-offset-2" id='weatherreport'>
+             <div id='image'></div>
+            <h4 id='city'></h4>
+            <h4 id='country'></h4>
+            <h4 id='desc'></h4>
+            <table class="table">
+            <tr>
+            <td><img src='images/temp.png' class="img-responsive"/>Temperature</td>
+            <td id='temperature'></td>    
+            </tr>
+            <tr>
+            <td><img src='images/pressure.png' class="img-responsive"/>Pressure</td>
+            <td id='pressure'></td>    
+            </tr>
+            <tr>
+            <td><img src='images/humidity.png' class="img-responsive"/>Humidity</td>
+            <td id='humidity'></td>    
+            </tr>
+            <tr>
+            <td><img src='images/wind.png' class="img-responsive"/>Wind</td>
+            <td id='wind'></td>    
+            </tr> 
+            <tr>
+            <td><img src='images/Sunrise.png' class="img-responsive"/>Sunrise</td>
+            <td id='sunrise'></td>    
+            </tr>
+            <tr>
+            <td><img src='images/sunset.png' class="img-responsive"/>Sunset</td>
+            <td id='sunset'></td>    
+            </tr>    
+            </table>
+        </div> 
+    </div>
+</section>    
+
+
+</body>
+</html>
