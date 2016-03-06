@@ -57,6 +57,9 @@ margin-right:20px;
 #weather td{
 text-align: left;
 }
+.jsondata{
+margin-bottom:-80px;    
+}
 /****************************Media Queires**********************/
 @media(min-width:320px)
 {
@@ -82,8 +85,106 @@ padding:330px 0px;
     padding:20px 0px 30px 0px;
     }
     #weather{
-    padding:260px 0px;
+    padding:270px 0 240px 0px;
     }    
     header .btn{    
 padding:10px 10px;
 }
+    
+    @media(min-width:768px){
+        
+        header{ 
+        padding:450px 0px 440px 0px;
+        background-size: 100% 1024px;    
+        }    
+        #pincodesearch{
+        padding:480px 0px;
+        }
+        #pincodesearch .btn{
+        width:100%;
+        }
+        #weather{    
+        padding:305px 0px;
+        } 
+}
+    @media(min-width:904px){
+     header{ 
+        padding:160px 0px;
+        background-size: 100% 500px;    
+        } 
+    #pincodesearch{
+        padding:131px 0px;
+        }   
+        #weather{    
+        padding:110px 0px;
+        } 
+    }
+ @media(min-width:1050px){
+     header{ 
+        padding:199px 0px;
+        background-size: 100% 600px;    
+        } 
+    #pincodesearch{
+        padding:175px 0px 295px 0px;
+        }  
+     #pincodesearch .btn{
+     margin-top:0px;    
+     }
+        #weather{    
+        padding:48px 0px;
+        } 
+    }
+@media(min-width:1260px){
+     header{ 
+        padding:252px 0px;
+        background-size: 100% 690px;    
+        } 
+    #pincodesearch{
+        padding:235px 0px 342px 0px;
+        }  
+     #pincodesearch .btn{
+     margin-top:0px;    
+     }
+        #weather{    
+        padding:72px 0px;
+        } 
+    }
+@media(min-width:1438px){
+     header{ 
+        padding:296px 0px;
+        background-size: 100% 730px;    
+        } 
+    #pincodesearch{
+        padding:273px 0px 392px 0px;
+        }  
+     #pincodesearch .btn{
+     margin-top:0px;    
+     }
+        #weather{    
+        padding:94px 0px;
+        } 
+    }
+@media(min-width:1560px){
+     header{ 
+        padding:316px 0px;
+        background-size: 100% 810px;    
+        } 
+    header h1{
+    font-size:4em;
+        }
+    header .btn{
+    font-size:1.5em;
+    }
+    #pincodesearch{
+        padding:299px 0px 438px 0px;
+        }  
+     #pincodesearch .btn{
+     margin-top:0px;    
+     }
+        #weather{    
+        padding:94px 0px;
+        } 
+    }
+           
+        
+    

@@ -3,14 +3,14 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition,Errorreport);
     } 
 else{ 
-       var pinsec=$('#pincodesearch').html();    
-       $('#weather').html(pinsec);
+       locationerror("Some thing Went Wrong");   
     }
 }
 
-function showPosition(position) {	
+function showPosition(position) {
+    
     var urldata='http://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon='+ position.coords.longitude+'&appid=494212dd6d3c254cc530307ecedf81b4&units=metric';
-getJSON(urldata);      
+    getJSON(urldata);      
 }
 
 function Errorreport(error) {
@@ -29,46 +29,57 @@ function Errorreport(error) {
             break;
     }
 }
-function locationerror(errormsg){
-var pinsec=$('#pincodesearch').html();    
-       $('#weather').html(errormsg).append(pinsec);
+
+function locationerror(errormsg) {
+
+    $('#pincodesearch').fadeIn().prepend(errormsg);
+    var pincodesearchpos=$('#pincodesearch').position().top;
+    $('html,body').animate({scrollTop:pincodesearchpos},800); 
 }
-function getWeather(){
- var pincode=$('#pincode').val();
-if(pincode!='')
-{
-var urldata='http://api.openweathermap.org/data/2.5/weather?zip='+pincode+'&appid=494212dd6d3c254cc530307ecedf81b4&units=metric';
-getJSON(urldata); 
-var weatherpos=$('#weather').position().top;
-$('html,body').animate({scrollTop:weatherpos},800);     
+
+function getWeather() {
+
+    var pincode=$('#pincode').val();
+    if(pincode!='')
+    {
+        var urldata='http://api.openweathermap.org/data/2.5/weather?zip='+pincode+'&appid=494212dd6d3c254cc530307ecedf81b4&units=metric';
+        getJSON(urldata); 
+        var weatherpos=$('#weather').position().top;
+        $('html,body').animate({scrollTop:weatherpos},800);     
+    }
 }
-}
-function getJSON(urlval){
- $.ajax({
+function getJSON(urlval) {
+ 
+    $.ajax({
        url:urlval,
        type:'get',
        dataType:'json',
            success:function(data){
-           $(data.main).each(function(index,value){
+           $(data.main).each(function(index,value) {
+               
                $('#temperature').html(value.temp+'&deg; Celsius');
                $('#pressure').html(value.pressure+'&nbsp;hpa');
                $('#humidity').html(value.humidity+'&nbsp; %');
             
            });
-               $(data.weather).each(function(index,value){
+               
+               $(data.weather).each(function(index,value) {
                $('#image').html('<img src="images/'+value.icon+'.png" class="img-responsive">');
                 $('#wind').html(value.description)   
             
            });
-                $(data.wind).each(function(index,value){
+                $(data.wind).each(function(index,value) {
+                    
                $('#wind').html(value.speed+'&nbsp;m/s');    
             
            });
-                $('#city').html(data.name);
+                
                $(data.sys).each(function(index,value){
                $('#country').html('('+value.country+')');
             
            });
+                
+               $('#city').html(data.name);
            }
        });
 }
